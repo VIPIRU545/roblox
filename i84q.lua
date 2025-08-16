@@ -500,6 +500,7 @@ do
     end)
 end
 
+_G.Instance = Instance
 _G.game = Instance.new(Game)
 _G.workspace = Instance.new(Workspace)
 
