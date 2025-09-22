@@ -248,9 +248,10 @@ type(e)})`)assert('number'==type(f),`bad argument #3 to 'Vector3.new' (number ex
 type(f)})`)local g=newproxy(true)do local h=getmetatable(g)h.__vector=vector.
 create(d,e,f)function h.__index(i,j:string):any j=string.lower(j)if j=='unit'
 then return vector.normalize(h.__vector)elseif j=='magnitude'then return vector.
-magnitude(h.__vector)end return c[j]or h.__vector[j]end function h.__newindex(i,
-j:string,k:any):()j=string.lower(j)assert('number'==type(k),`can't assign '{
-type(k)}' to '{j}' (number expected)`)assert(j=='x'or j=='y'or j=='z',`attempt to index Vector3 with '{
+magnitude(h.__vector)elseif j=='array'then return{h.__vector.x,h.__vector.y,h.
+__vector.z}end return c[j]or h.__vector[j]end function h.__newindex(i,j:string,k
+:any):()j=string.lower(j)assert('number'==type(k),`can't assign '{type(k)}' to '{
+j}' (number expected)`)assert(j=='x'or j=='y'or j=='z',`attempt to index Vector3 with '{
 j}'`)local l:vector=h.__vector h.__vector=vector.create(j=='x'and k or l.x,j==
 'y'and k or l.y,j=='z'and k or l.z)end function h.__add(i,j:
 Vector3__DARKLUA_TYPE_b):Vector3__DARKLUA_TYPE_b assert('userdata'==type(j)and
